@@ -6,6 +6,8 @@ let minute = document.querySelector(".min");
 let second = document.querySelector(".sec");
 let centiSecond = document.querySelector(".msec");
 
+let laps = document.querySelector(".laps");
+
 let toggleButton = () => {
     lapButton.classList.remove("hidden");
     resetButton.classList.remove("hidden");
@@ -90,5 +92,37 @@ let reset = () => {
     minCounter = 0;
 }
 
+const lap = () => {
+    const li = document.createElement("li");
+    const number = document.createElement("span");
+    const timeStamp = document.createElement("span");
+
+    li.setAttribute("class", "lap-item");
+    number.setAttribute("class", "number");
+    timeStamp.setAttribute("class", "time-stamp");
+
+    let text_min = minCounter.toString();
+    let text_sec = secCounter.toString();
+    let text_msec = centiCounter.toString();
+
+    if(minCounter < 10){
+        text_min = "0" + text_min;
+    }
+
+    if(secCounter < 10){
+        text_sec = "0" + text_sec;
+    }
+
+    if(centiCounter < 10){
+        text_msec = "0" + text_msec;
+    }
+
+    timeStamp.innerHTML = `${text_min} : ${text_sec} . ${text_msec}`;
+
+    li.append(number, timeStamp);
+    laps.append(li);
+}
+
 startButton.addEventListener("click", start);
 resetButton.addEventListener("click", reset);
+lapButton.addEventListener("click", lap);
