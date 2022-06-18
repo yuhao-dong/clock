@@ -184,26 +184,26 @@
     color: #fff;
 }
 
-@media (max-width:476px){
+@media (max-width: 476px){ /* 476px */
     .container_clock {
         /* 225px here because the clock width = 450px */
-        border-top-left-radius: 200px;
-        border-top-right-radius: 200px;
+        border-top-left-radius: 190px;
+        border-top-right-radius: 190px;
     }
     
     .clock {
-        width: 400px;
-        height: 400px;
+        width: 380px;
+        height: 380px;
     }
 
     .circle {
-        width: 260px;
-        height: 260px;
+        width: 250px;
+        height: 250px;
     }
 
     .circle2 {
-        width: 210px;
-        height: 210px;
+        width: 200px;
+        height: 200px;
     }
     
     .circle3 {
