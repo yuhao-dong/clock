@@ -1,0 +1,94 @@
+let startButton = document.querySelector(".start");
+let resetButton = document.querySelector(".reset");
+let lapButton = document.querySelector(".lap");
+
+let minute = document.querySelector(".min");
+let second = document.querySelector(".sec");
+let centiSecond = document.querySelector(".msec");
+
+let toggleButton = () => {
+    lapButton.classList.remove("hidden");
+    resetButton.classList.remove("hidden");
+}
+
+let starting = true;
+let isReset = true;
+let minCounter = 0;
+let min;
+let secCounter = 0;
+let sec;
+let centiSec;
+let centiCounter = 0;
+
+let start = () => {
+    if(starting && isReset){
+        startButton.innerHTML = "Pause";
+
+        min = setInterval(() => {
+            minCounter++;
+            let text = minCounter.toString();
+            if(minCounter < 10){
+                text = "0" + text;
+            }
+            minute.innerHTML = `${text} :`;
+        }, 60000);
+
+        sec = setInterval(() => {
+                secCounter++;
+                if(secCounter === 60){
+                    secCounter = 0;
+                }
+                let text = secCounter.toString();
+                if(secCounter < 10){
+                    text = "0" + text;
+                }
+                second.innerHTML = `&nbsp;${text} .`;
+            }, 1000);
+
+        centiSec = setInterval(() => {
+            centiCounter++;
+                if(centiCounter === 100){
+                    centiCounter = 0;
+                }
+                let text = centiCounter.toString();
+                if(centiCounter < 10){
+                    text = "0" + text;
+                }
+
+                if(centiCounter > 99){
+                    console.log(centiCounter);
+                }
+
+                centiSecond.innerHTML = `&nbsp;${text}`;
+            }, 10);
+
+        starting = false;
+        isReset = false;
+    }
+    else{
+        startButton.innerHTML = "Start";
+        clearInterval(sec);
+        clearInterval(centiSec);
+        clearTimeout(min);
+        starting = true;
+        isReset = true;
+    }
+
+    toggleButton();
+}
+
+let reset = () => {
+    isReset = false;
+    start();
+    lapButton.classList.add("hidden");
+    resetButton.classList.add("hidden");
+    minute.innerHTML = "00 :";
+    second.innerHTML = "&nbsp;00 .";
+    centiSecond.innerHTML = "&nbsp;00"
+    secCounter = 0;
+    centiCounter = 0;
+    minCounter = 0;
+}
+
+startButton.addEventListener("click", start);
+resetButton.addEventListener("click", reset);

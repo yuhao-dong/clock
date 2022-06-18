@@ -25,5 +25,107 @@
     justify-content: center;
     align-items: center;
     min-height: 90vh;
+    width: 100%;
     background-color: #2f363e;
+}
+
+.outer-circle {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner-circle {
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2f363e;
+}
+
+.text {
+    color: white;
+    font-size: 35px;
+}
+
+.button-wrapper {
+    width: 250px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: 2px solid white;
+    background-color: #2f363e;
+    color: white;
+    font-size: 18px;
+}
+
+.button:hover {
+    background-color: white;
+    color: #2f363e;
+}
+
+.laps {
+    list-style: none;
+    color: white;
+    padding: 0%;
+    padding-top: 25px;
+    height: 250px;
+    overflow: auto;
+    position: relative;
+    width: 250px;
+    margin-top: 30px;
+}
+
+.laps::-webkit-scrollbar {
+    display: none;
+}
+
+.lap-item {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    /* background-color: aqua; */
+    border: 1px solid #444;
+    border-radius: 50px;
+    margin-bottom: 25px;
+}
+
+.number {
+    color: #ccc;
+}
+
+.time-stamp {
+    display: inline-block;
+    margin-left: 25px;
+}
+
+.lap-clear-button {
+    display: block;
+    position: fixed;
+    z-index: 100;
+    bottom: 60px;
+    margin-left: 62px;
+    width: 125px;
+    padding: 10px 0;
+    border: 1px solid white;
+    border-radius: 50px;
+    color: #2f363e;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.hidden {
+    visibility: hidden;
 }
