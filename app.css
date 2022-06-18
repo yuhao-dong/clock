@@ -176,6 +176,7 @@ button:hover #dot{
         display: flex;
         justify-content: center;
         align-items: center;
+        touch-action: none;
     }
     /* main h1 {
        font-size: 100%;
@@ -183,6 +184,7 @@ button:hover #dot{
     } */
     #container {
         flex-direction: column;
+        touch-action: none;
     }
     #container div:nth-child(1n){
         height: 20%;
