@@ -39,6 +39,24 @@
     align-items: center;
 }
 
+.animation-bg {
+    background: linear-gradient(-45deg, #ee7752, orange, yellow, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 8s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 .inner-circle {
     width: 230px;
     height: 230px;
@@ -62,9 +80,9 @@
 }
 
 .button {
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
     border: 2px solid white;
     background-color: #2f363e;
     color: white;
@@ -124,6 +142,7 @@
     border-radius: 50px;
     color: #2f363e;
     background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
 }
 
 .hidden {

@@ -1,6 +1,8 @@
 let startButton = document.querySelector(".start");
 let resetButton = document.querySelector(".reset");
 let lapButton = document.querySelector(".lap");
+let clearButton = document.querySelector(".lap-clear-button");
+let bg = document.querySelector(".outer-circle");
 
 let minute = document.querySelector(".min");
 let second = document.querySelector(".sec");
@@ -21,10 +23,12 @@ let secCounter = 0;
 let sec;
 let centiSec;
 let centiCounter = 0;
+let lapItem = 0;
 
 let start = () => {
     if(starting && isReset){
         startButton.innerHTML = "Pause";
+        bg.classList.add("animation-bg");
 
         min = setInterval(() => {
             minCounter++;
@@ -74,6 +78,7 @@ let start = () => {
         clearTimeout(min);
         starting = true;
         isReset = true;
+        bg.classList.remove("animation-bg");
     }
 
     toggleButton();
@@ -90,6 +95,7 @@ let reset = () => {
     secCounter = 0;
     centiCounter = 0;
     minCounter = 0;
+    clearAll();
 }
 
 const lap = () => {
@@ -118,11 +124,22 @@ const lap = () => {
     }
 
     timeStamp.innerHTML = `${text_min} : ${text_sec} . ${text_msec}`;
+    number.innerHTML = `#${++lapItem}`;
 
     li.append(number, timeStamp);
     laps.append(li);
+
+    clearButton.classList.remove("hidden");
+}
+
+let clearAll = () => {
+    laps.innerHTML = "";
+    laps.append(clearButton);
+    lapItem = 0;
+    clearButton.classList.add("hidden");
 }
 
 startButton.addEventListener("click", start);
 resetButton.addEventListener("click", reset);
 lapButton.addEventListener("click", lap);
+clearButton.addEventListener("click", clearAll);
