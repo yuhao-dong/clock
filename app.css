@@ -15,7 +15,6 @@ main {
     height: 150px;
     width: 90%;
     margin-bottom: 2%;
-    touch-action: none;
 }
 
 h1 {
@@ -115,7 +114,6 @@ button:hover #dot{
     /* flex-wrap: wrap; */
     align-items: center;
     transition: color 1s, background-color 1s;
-    touch-action: none;
 }
 
 #container:hover {
